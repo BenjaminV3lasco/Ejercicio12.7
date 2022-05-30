@@ -26,20 +26,14 @@ public class Ejercicio127 {
                 }
             switch(respuesta){
                case 1:
-                    //TipoSocio casaInsertar = new TipoSocio();
-                    //tablaHash.insertar(casaInsertar);
+                    
                     break;
                    case 2:
                     System.out.print("Ingrese la clave de la casa que desea Eliminar \n");
-                    //clave=sc.nextLine();
-                    //tablaHash.eliminar(clave);
+                    
                     break;
                     case 3:
-                   // CasaRural casaMostrar = new CasaRural();
-                    System.out.print("Ingrese la clave de la casa que desea Buscar \n");
-                    //clave=sc.nextLine();
-                    //casaMostrar = tablaHash.buscar(clave);
-                    //casaMostrar.muestra();
+                   
                     break;
                 }    
         }while(respuesta<4);

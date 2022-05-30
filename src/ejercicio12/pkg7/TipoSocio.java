@@ -28,25 +28,10 @@ public class TipoSocio {
     nombre = n;
     edad = e;
     f = new Fecha(d, m, a);
-    
     }
+    
     public int getCodigo()
     {
     return codigo;
     }
-    //Clase Elemento
-    public class Elemento
-{
-    TipoSocio socio;
-    Elemento sgte;
-    public Elemento(TipoSocio e)
-    {
-    socio = e;
-    sgte = null;
-    }
-    public TipoSocio getSocio()
-    {
-    return socio;
-    }
-    };
-}
+ }
