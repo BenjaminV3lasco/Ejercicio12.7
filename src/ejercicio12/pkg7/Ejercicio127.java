@@ -5,7 +5,9 @@ public class Ejercicio127 {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int respuesta;
+        int respuesta,codigo, edad, dia, mes, año;
+        String nombre;
+        Tabla tabla = new Tabla();
         //Menú
         do{
             System.out.println("¡Buenos dias!");
@@ -26,18 +28,24 @@ public class Ejercicio127 {
                 }
             switch(respuesta){
                case 1:
-                    
+                    TipoSocio socio = new TipoSocio();
+                    tabla.insertar(socio);
                     break;
-                   case 2:
-                    System.out.print("Ingrese la clave de la casa que desea Eliminar \n");
-                    
+               case 2:
+                    System.out.println("Ingrese el codigo para eliminar a un socio:");
+                    codigo = sc.nextInt();
+                    sc.nextLine();
+                    tabla.eliminar(codigo);
                     break;
-                    case 3:
-                   
+               case 3:
+                    System.out.println("Ingrese el codigo para buscar un socio:");
+                    codigo = sc.nextInt();
+                    sc.nextLine();
+                    tabla.buscar(codigo).getSocio().mostrar();
                     break;
                 }    
         }while(respuesta<4);
     }
-  }
+}
     
 

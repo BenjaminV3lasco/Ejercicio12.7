@@ -2,40 +2,40 @@
 package ejercicio12.pkg7;
 
 public class Tabla {
-    static final double CONST = 0.618034;
-    static final int TAMANTABLA = 97;
-    private int numElementos;
-    private Elemento [] tabla ; 
-
+    static int M = 97;
+    int numElementos;
+    static final double R = 0.618034;
+    Elemento[] tabla;
+    
+    public Tabla() // constructor
+    {
+        tabla = new Elemento[M];
+        for (int k = 0; k < M; k++)
+            tabla[k] = null;
+        numElementos = 0;
+    }
+    
     static int dispersion(long x)
     {
         double t;
         int v;
-        t = CONST * x - Math.floor(CONST * x); // parte decimal 
-        v = (int) (TAMANTABLA * t);
+        t = R * x - Math.floor(R * x); // parte decimal
+        v = (int) (M * t);
         return v;
     }
     
-    public Tabla() // constructor
+    //Método Insertar
+    public void insertar(TipoSocio s)
     {
-        tabla = new Elemento[TAMANTABLA];
-        for (int k = 0; k < TAMANTABLA; k++)
-            tabla[k] = null;
-        
-            numElementos = 0;
+        int posicion;
+        Elemento nuevo;
+        posicion = dispersion(s.getCodigo());
+        nuevo = new Elemento(s);
+        nuevo.sgte = tabla[posicion];
+        tabla[posicion] = nuevo;
+        numElementos++;
     }
-   //Método Insertar
-   public void insertar(TipoSocio s)
-    {
-    int posicion;
-    Elemento nuevo;
-    posicion = dispersion(s.getCodigo());
-    nuevo = new Elemento(s);
-    nuevo.sgte = tabla[posicion];
-    tabla[posicion] = nuevo;
-    numElementos++;
-    }
-    
+   
     //Método Eliminar 
     public void eliminar(int codigo)
     {
@@ -53,7 +53,7 @@ public class Tabla {
     actual = actual.sgte;
     }
     if (actual.getSocio().getCodigo() != codigo)
-    System.out.println("No se encuentra en la tabla el socio "
+    System.out.println("No se encuentra en la tabla al socio"
     + codigo);
     {
     if (anterior == null) // primer nodo
